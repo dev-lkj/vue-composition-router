@@ -21,10 +21,15 @@
 
 <script>
 import { ref, inject } from 'vue';
+import { 
+  // useRoute,
+   useRouter } from 'vue-router';
+
 
 export default {
   setup() {
     const addProduct = inject('addProduct');
+    const router  = useRouter();
 
     const enteredTitle = ref('');
     const enteredPrice = ref(null);
@@ -36,6 +41,7 @@ export default {
         description: enteredDescription,
         price: enteredPrice,
       });
+      router.push('/products');
     }
 
     return {
